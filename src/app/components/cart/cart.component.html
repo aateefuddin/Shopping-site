@@ -1,0 +1,138 @@
+
+<div class="cart-wrapper">
+
+    <div class="container ">
+        <h2 class="mb-5 text-center">Shopping Cart</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="table-responsive">
+                    <table id="myTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th class="text-right"><span id="amount" class="amount">Amount</span> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cartData; let i=index">
+                                <td>
+                                    <div class="product-img">
+                                        <div class="img-prdct"><img [src]="item.imageUrl"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>{{item.name}}</p>
+                                </td>
+                                <td>
+                                    <div class="price text-success">
+                                      {{item.price}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="button-container">
+                                        <button class="cart-qty-plus" type="button" value="+" (click)="updateQuantity('increase', item, i)">+</button>
+                                        <input type="text" name="qty" min="0" class="qty form-control" [value]="item.quantity"/>
+                                        <button class="cart-qty-minus" type="button" value="-" (click)="updateQuantity('decrease', item, i)">-</button>
+                                    </div>
+                                </td>
+                               
+                                <td align="right"><span id="amount" class="amount">{{item.quantity * item.price}}</span></td>
+                            </tr>
+    
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4"> 
+                                     <label>Have coupon?</label>
+                                     <div class="button-container"> 
+                                     <input #Coupon
+                                     (keyup.enter)="addCoupon(Coupon.value)"
+                                     (blur)="addCoupon(Coupon.value); Coupon.value='' " placeholder=" Sample: TEST50">
+                                    </div>
+                                </td>
+                                <td align="right">
+                                    <div class="button-container"><button (click)="addCoupon(Coupon.value)" class="btn btn-primary">Apply Coupon</button></div></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <br>
+        <div class="row">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-5">
+                <div class="carts-t">
+                    <div class="heading">
+                        <h5>
+                            Carts Total
+                        </h5>
+                    </div>
+                    <div class="total-box">
+                        <div class="t-box">
+                            <div class="left-side">
+                                <h6>
+                                    SUBTOTAL
+                                </h6>
+                            </div>
+                            <div class="right-side">
+                                <p>
+                                    {{totalPrice}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="t-box">
+                            <div class="left-side">
+                                <h6>
+                                    TOTAL
+                                </h6>
+                            </div>
+                            <div class="right-side">
+                                <p>
+                                    {{totalPrice}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+    
+                    
+                    <button class="btn btn-primary" type="submit" (click)="orderPlaced()" data-toggle="modal" data-target="#exampleModal">Proceed to Checkout</button>
+                    <div class="col-sm-7"></div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <h5 class="modal-title text-center" id="exampleModalLabel">Thank you</h5> -->
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <div class="success" *ngIf="EmptyOrNot == false">
+                  <img src="../../../assets/images/check.png" alt="" class="img-fluid">
+                  <h2>
+                      Thank You
+                  </h2>
+                </div>
+                   <div class="Empty" *ngIf="EmptyOrNot == true">
+                    <img src="../../../assets/images/box.png" alt="" class="img-fluid">
+                    <h2>
+                        Your Cart is Empty
+                    </h2>
+                  </div>
+                </div>
+             
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

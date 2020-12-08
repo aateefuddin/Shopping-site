@@ -1,0 +1,126 @@
+i {
+	margin-right: 10px;
+}
+
+/*------------------------*/
+input:focus,
+button:focus,
+.form-control:focus{
+	outline: none;
+	box-shadow: none;
+}
+.form-control:disabled, .form-control[readonly]{
+	background-color: #fff;
+}
+.table{
+    border: 1px solid #000;
+    th{
+        border: 1px solid #000;
+    }
+}
+
+.table tr,
+.table tr td{
+	vertical-align: middle;
+}
+.button-container{
+	display: flex;
+	align-items: center;
+}
+.button-container .form-control{
+	max-width: 80px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
+}
+#myTable .form-control{
+	width: auto;
+	display: inline-block;
+}
+.cart-qty-plus,
+.cart-qty-minus{
+	width: 38px;
+	height: 38px;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.cart-qty-plus:hover,
+.cart-qty-minus:hover{
+	background-color: #5161ce;
+	color: #fff;
+}
+.img-prdct{
+	width: 50px;
+	height: auto;
+	// background-color: #5161ce;
+	// border-radius: 4px;
+}
+.img-prdct img{
+  width: 100%;
+}
+
+.total-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #000;
+    justify-content: center;
+    width: 100%;
+}
+.t-box {
+    display: flex;
+    justify-content: center;
+    align-items: initial;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+.left-side {
+    text-align: center;
+    width: 50%;
+    /* border: 1px solid #000; */
+    border-right: 1px solid #000;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-sm-7{
+    color: #ce0095;
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img{
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    h2{
+        color: #000;
+    }
+
+}
+.cart-wrapper{
+    background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: auto;
+min-height: 100vh;
+    // overflow: hidden;
+    padding: 50px 0px 40px 0px;
+    color: black;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+    
+    <h4 class="text-center">
+        <br>
+        Available Products
+    </h4>
+    <ul class="product-list">
+
+        <li class="product-item" *ngFor="let item of products; let i=index">
+            <a class="product-link">
+                <figure class="product-info">
+                    <div class="product-info-img">
+                        <img [src]="item.imageUrl" alt="description image">
+                    </div>
+                    <figcaption class="product-info-description">
+                        <h2 class="title">{{item.name}}</h2>
+                        <!-- <p class="description">{{item.description}}</p> -->
+                    </figcaption>
+                    <div class="price-box">
+                        <div class="price">
+                        
+                            <span class="price-info">Price: {{item.price}}</span>
+                        </div>
+                
+                    </div>
+                    <div>
+                        <button  class="btn btn-buy btn-sm btn-block" (click)="addToCart(item)">Add to Cart </button>
+                    </div>
+                </figure>
+            </a>
+        </li>
+  
+    </ul>
+</div>
+
+
